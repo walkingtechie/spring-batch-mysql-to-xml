@@ -32,7 +32,7 @@ public class ReadFromDB {
 
   @Bean
   public Job readUser() throws Exception {
-    return jobBuilderFactory.get("readUser").flow(step1()).end().build();
+    return jobBuilderFactory.get("readUser").incrementer(new RunIdIncrementer()).flow(step1()).end().build();
   }
 
   @Bean
